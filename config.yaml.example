@@ -1,0 +1,34 @@
+server:
+  base_url: http://homeassistant.local:8123
+  token: <long-lived-token> #https://www.home-assistant.io/docs/authentication/
+shortcuts:
+  - name: table_led
+    hotkey: ctrl+alt+l
+    method: POST
+    endpoint: /api/services/script/turn_on
+    body:
+      entity_id: script.toggle_led_ole
+  - name: office_fan_toggle
+    hotkey: ctrl+alt+f
+    method: POST
+    endpoint: /api/services/fan/toggle
+    body:
+      entity_id: fan.office
+  - name: living_room_light_on
+    hotkey: ctrl+alt+o
+    method: POST
+    endpoint: /api/services/light/turn_on
+    body:
+      entity_id: light.living_room
+      brightness_pct: 80
+  - name: living_room_light_off
+    hotkey: ctrl+alt+p
+    method: POST
+    endpoint: /api/services/light/turn_off
+    body:
+      entity_id: light.living_room
+  - name: outdoor_temp_read
+    hotkey: ctrl+alt+t
+    method: GET
+    endpoint: /api/states/sensor.outdoor_temperature
+    body: {}
