@@ -6,3 +6,5 @@ dist/
 build/
 *.spec
 config.yaml
+ha_shortcuts.out
+ha_shortcuts.pid
