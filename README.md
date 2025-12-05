@@ -34,11 +34,13 @@ Replace the URL/token/entity_id with your own; the script uses the same REST cal
 ## Install (e.g., on Debian/Ubuntu/Raspberry Pi OS)
 ```sh
 sudo apt-get update
-sudo apt-get install -y python3 python3-pip
+sudo apt-get install -y python3 python3-pip python3-venv
 cd /path/to/ha-keyboard-shortcuts
-pip3 install -r requirements.txt
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
 ```
-The `keyboard` library needs access to `/dev/input` on Linux; run with sudo or grant the user read access to the input device.
+PEP 668 blocks system-wide `pip install`; the venv avoids that. The `keyboard` library needs access to `/dev/input` on Linux; run with sudo or grant the user read access to the input device.
 
 ## Usage
 List shortcuts:
